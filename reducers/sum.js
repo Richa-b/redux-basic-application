@@ -1,17 +1,10 @@
-function sum(currentState, action){
-    var DEFAULT_STATE = 3;
-    if (currentState === undefined) {
-        nextState = DEFAULT_STATE;
-        return nextState;
-    }
+const DEFAULT_SUM_STATE = 3;
 
+function sum(currentState=DEFAULT_SUM_STATE, action){
     switch (action.type) {
-
       case 'SUM':
-        nextState = parseInt(action.a) + parseInt(action.b);
-        return nextState;
+        return parseInt(action.a) + parseInt(action.b);
       default:
-        nextState = currentState;
-        return nextState;
+        return currentState;
     }
 }

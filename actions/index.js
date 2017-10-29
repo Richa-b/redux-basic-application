@@ -1,18 +1,11 @@
-var decrease = function () {
-    return {type: 'DECREMENT'};
-}
+const decrease = () => ({type: 'DECREMENT'});
 
-var increase = function () {
-    return {type: 'INCREMENT'};
-}
+const increase = () => ({type: 'INCREMENT'});
 
-var getSum = function (a, b) {
-    return {type: 'SUM', a: a, b: b};
-};
+const getSum = (a, b) => ({type: 'SUM', a: a, b: b});
 
-var asyncIncrement = function (dispatch, state) {
-    store.dispatch({type : 'LOAD_STATUS'})
-    serverApi.increaseCount(state.count, function () {
-        dispatch({type: 'INC_SYNC'})
-    })
+const asyncIncrement = (dispatch, state) => {
+    dispatch({type: 'LOAD_STATUS'})
+    serverApi.increaseCount(state.count, () => dispatch({type: 'INC_SYNC'})
+    )
 }

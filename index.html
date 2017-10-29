@@ -28,17 +28,13 @@
 <script>
 
     document.getElementById('decrement')
-        .addEventListener('click', function () {
-            store.dispatch(decrease());
-        });
+        .addEventListener('click',  () => store.dispatch(decrease()));
     document.getElementById('incrementAsync')
-        .addEventListener('click', function () {
-            store.dispatch(asyncIncrement);
-        });
+        .addEventListener('click', () => store.dispatch(asyncIncrement));
     document.getElementById('sum')
-        .addEventListener('click', function () {
-            var a = document.getElementById('a').value;
-            var b = document.getElementById('b').value;
+        .addEventListener('click', () =>  {
+            const a = document.getElementById('a').value;
+            const b = document.getElementById('b').value;
             store.dispatch(getSum(a, b));
         });
 </script>

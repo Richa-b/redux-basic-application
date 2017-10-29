@@ -1,9 +1,5 @@
-var serverApi = {
-    increaseCount: function (currentCount,callback) {
-        setTimeout(
-            function () {
-                callback()
-            }, 2000)
+const serverApi = {
+    increaseCount:  (currentCount,callback) => {
+        setTimeout(() =>  callback(), 2000)
     }
-
 }

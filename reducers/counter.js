@@ -1,25 +1,14 @@
-function counter(currentState, action){
-    var DEFAULT_STATE = {clicks : 0 , loading : false};
-    var nextState = Object.assign({},currentState);
-    if (currentState === undefined) {
+const DEFAULT_STATE = {clicks: 0, loading: false};
 
-        nextState = DEFAULT_STATE;
-        return nextState;
-    }
-    console.log("counter::",action.type);
+function counter(currentState = DEFAULT_STATE, action) {
     switch (action.type) {
-      case 'DECREMENT':
-        nextState.clicks = currentState.clicks - 1;
-        return nextState;
-      case 'LOAD_STATUS':
-            nextState.loading = true;
-            return nextState;
-      case 'INC_SYNC':
-        nextState.clicks = currentState.clicks + 1;
-        nextState.loading = false;
-        return nextState;
-      default:
-        nextState = currentState;
-        return nextState;
+        case 'DECREMENT':
+            return Object.assign({}, currentState, {clicks: currentState.clicks - 1});
+        case 'LOAD_STATUS':
+            return Object.assign({}, currentState, {loading: true});
+        case 'INC_SYNC':
+            return Object.assign({}, currentState, {loading: false, clicks: currentState.clicks + 1});
+        default:
+            return currentState
     }
 }
